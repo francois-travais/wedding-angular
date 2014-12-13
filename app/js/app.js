@@ -6,6 +6,7 @@ var weddingApp = angular.module('weddingApp', [
     'ngRoute',
     'leaflet-directive',
     'ui.bootstrap',
+    'config',
     'weddingControllers',
     'weddingServices',
     'weddingDirectives',

@@ -2,7 +2,7 @@
 
 /* Services */
 
-var weddingServices = angular.module('weddingServices', ['ngResource']);
+var weddingServices = angular.module('weddingServices', ['ngResource', 'config']);
 
 weddingServices.factory('Gift', ['$resource',
     function ($resource) {
@@ -11,23 +11,23 @@ weddingServices.factory('Gift', ['$resource',
         });
     }]);
 
-weddingServices.factory('AccommodationResource', ['$resource',
-    function ($resource) {
-        return $resource('http://localhost:5000/rest/accommodations', {}, {
+weddingServices.factory('AccommodationResource', ['$resource', 'restHost', 'restPort', 'restPath',
+    function ($resource, restHost, restPort, restPath) {
+        return $resource('http://'+ restHost + ':' + restPort + '/' + restPath + '/accommodations', {}, {
             query: {method: 'GET'}
         });
     }]);
 
-weddingServices.factory('ContactResource', ['$resource',
-    function ($resource) {
-        return $resource('http://localhost:5000/rest/contact', {}, {
+weddingServices.factory('ContactResource', ['$resource', 'restHost', 'restPort', 'restPath',
+    function ($resource, restHost, restPort, restPath) {
+        return $resource('http://'+ restHost + ':' + restPort + '/' + restPath + '/contact', {}, {
             send: {method: 'POST'}
         });
     }]);
 
-weddingServices.factory('ReplyResource', ['$resource',
-    function ($resource) {
-        return $resource('http://localhost:5000/rest/reply', {}, {
+weddingServices.factory('ReplyResource', ['$resource', 'restHost', 'restPort', 'restPath',
+    function ($resource, restHost, restPort, restPath) {
+        return $resource('http://'+ restHost + ':' + restPort + '/' + restPath + '/reply', {}, {
             send: {method: 'POST'}
         });
     }]);
