@@ -1,0 +1,72 @@
+<div class="modal-header">
+    <h3 class="modal-title">Confirmez votre présence</h3>
+</div>
+<div class="modal-body">
+    <alert type="{{alert.type}}" ng-repeat="alert in alerts">{{alert.msg}}</alert>
+    <form name="replyForm" class="form-horizontal">
+        <div ng-class="{'form-group': true, 'has-error': replyForm.rfName.$invalid && replyForm.rfName.$dirty}">
+            <label class="control-label col-md-4" for="rfName">Nom(s): </label>
+
+            <div class="col-md-6">
+                <input class="form-control" id="rfName" type="text" ng-model="reply.name" name="rfName"
+                       placeholder="Le nom des participants" required/>
+            </div>
+        </div>
+        <div ng-class="{'form-group': true, 'has-error': contactForm.rfMail.$invalid && contactForm.rfMail.$dirty}">
+            <label class="control-label col-md-4" for="rfMail">Adresse email: </label>
+
+            <div class="col-md-6">
+                <input class="form-control" id="rfMail" type="email" ng-model="reply.email" name="rfMail"
+                       placeholder="Un email pour vous recontacter"/>
+            </div>
+        </div>
+        <div ng-class="{'form-group': true, 'has-error': replyForm.rfAdultNb.$invalid && replyForm.rfAdultNb.$dirty}">
+            <label class="control-label col-md-4" for="rfAdultNb">Nombre d'adulte(s): </label>
+
+            <div class="col-md-6">
+                <!--<input class="form-control" id="rfAdultNb" type="number" ng-model="replyForm.adultNb" name="rfAdultNb"-->
+                <!--min="1" max="10" required />-->
+                <div class="input-group">
+                    <input type="text" class="form-control" id="rfAdultNb" name="rfAdultNb" value="0"
+                           ng-model="reply.adultNb" required ng-minlength="1" ng-maxlength="1" style="text-align: right">
+
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" ng-click="adultMinus()">-</button>
+                        <button class="btn btn-default" ng-click="adultPlus()">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-class="{'form-group': true, 'has-error': replyForm.rfChildNb.$invalid && replyForm.rfChildNb.$dirty}">
+            <label class="control-label col-md-4" for="rfChildNb">Nombre d'enfant(s): </label>
+
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input class="form-control" id="rfChildNb" type="text" ng-model="reply.childNb"
+                           name="rfChildNb"
+                           ng-minlength="1" ng-maxlength="1" required style="text-align: right"/>
+
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" ng-click="childMinus()">-</button>
+                        <button class="btn btn-default" ng-click="childPlus()">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-class="{'form-group': true, 'has-error': replyForm.rfComment.$invalid && replyForm.rfComment.$dirty}">
+            <label class="control-label col-md-4" for="rfComment">Commentaires: </label>
+
+            <div class="col-md-6">
+                <textarea class="form-control" id="rfComment" ng-model="reply.comment" name="rfComment"
+                          rows="3"></textarea>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-warning" ng-click="cancel()">Annuler</button>
+    <button type="submit" class="btn btn-primary" ng-click="save(replyForm)"
+            ng-disabled="isDisabled(replyForm)"><span class="glyphicon glyphicon-envelope"></span>
+        Envoyer
+    </button>
+</div>

@@ -1,0 +1,35 @@
+<div class="intro page-title">
+    <h2>Liste de Mariage</h2>
+</div>
+<div class="container">
+    <div class="row">
+        <leaflet defaults="mapDefaults" center="mapCenter" markers="markers" style="height: 480px;"></leaflet>
+    </div>
+    <!--<div class="jumbotron map" id="map"></div>-->
+    <div class="row">
+        <!--Body content-->
+        <div ng-repeat="gift in gifts" class="panel panel-default">
+            <map-marker lat="gift.coordinates[0]" lng="gift.coordinates[1]" id="gift.id" name="gift.name"></map-marker>
+            <div class="panel-heading"><a href="#/phones/{{gift.id}}"><h4>{{gift.name}}</h4></a></div>
+            <div class="panel-body">
+                <div class="row">
+                    <a class="col-md-4" href="#/phones/{{gift.id}}"><img class="img-thumbnail img-responsive"
+                                                                         ng-src="{{gift.imageUrl}}"></a>
+
+                    <div class="col-md-8">
+                        <div class="">{{gift.snippet}}</div>
+                        <div class=""><span style="font-weight: bold;">Prix:</span> {{gift.price}} €</div>
+                        <div class=""><span style="font-weight: bold;">Déjà resérvé:</span> {{gift.booked}} €</div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                 aria-valuemax="100" style="width: 0%;">
+                                0%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

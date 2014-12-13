@@ -1,0 +1,39 @@
+<div class="modal-header">
+    <h3 class="modal-title">Nous contacter</h3>
+</div>
+<div class="modal-body">
+    <alert type="{{alert.type}}" ng-repeat="alert in alerts">{{alert.msg}}</alert>
+    <form name="contactForm" class="form-horizontal">
+        <div ng-class="{'form-group': true, 'has-error': contactForm.cfName.$invalid && contactForm.cfName.$dirty}">
+            <label class="control-label col-md-4" for="cfName">Nom(s): </label>
+
+            <div class="col-md-6">
+                <input class="form-control" id="cfName" type="text" ng-model="contactForm.name" name="cfName"
+                       placeholder="Le nom des participants" required/>
+            </div>
+        </div>
+        <div ng-class="{'form-group': true, 'has-error': contactForm.cfMail.$invalid && contactForm.cfMail.$dirty}">
+            <label class="control-label col-md-4" for="cfMail">Adresse email: </label>
+
+            <div class="col-md-6">
+                <input class="form-control" id="cfMail" type="email" ng-model="contactForm.email" name="cfMail"
+                       placeholder="Un email pour vous recontacter"/>
+            </div>
+        </div>
+        <div ng-class="{'form-group': true, 'has-error': contactForm.cfMessage.$invalid && contactForm.cfMessage.$dirty}">
+            <label class="control-label col-md-4" for="cfMessage">Message: </label>
+
+            <div class="col-md-6">
+                <textarea class="form-control" id="cfMessage" ng-model="contactForm.message" name="cfMessage"
+                          rows="3" required></textarea>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-warning" ng-click="cancel()">Annuler</button>
+    <button type="submit" class="btn btn-primary" ng-click="save(contactForm)"
+            ng-disabled="isDisabled(contactForm)"><span class="glyphicon glyphicon-envelope"></span>
+        Envoyer
+    </button>
+</div>

@@ -1,0 +1,20 @@
+[
+  {
+    "price": 500,
+    "booked": 20,
+    "id": "avion_paris_rome",
+    "imageUrl": "img/gifts/avion-01.jpg",
+    "name": "Billet d'avion Paris-Rome",
+    "snippet": "Le billet d'avion nous permettant de faire Paris Rome",
+    "coordinates": [41.773, 12.2397]
+  },
+  {
+    "price": 10,
+    "booked": 2,
+    "id": "cafe_saint_marc_venise",
+    "imageUrl": "img/gifts/cafe_place_saint_marc_venise.jpg",
+    "name": "Un café place Saint Marc à Venise",
+    "snippet": "Pour nous laisser prendre le temps d'admirer cette magnifique place en dégustant un bon café italien.",
+    "coordinates": [45.434, 12.338]
+  }
+]

@@ -1,0 +1,239 @@
+/* app css stylesheet */
+@import url(http://fonts.googleapis.com/css?family=Amatic+SC:700);
+@import url(http://fonts.googleapis.com/css?family=Merriweather);
+
+body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Merriweather', serif;
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
+}
+
+a, .main-menu .navbar-brand span {
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+.sticky-top a, .main-menu.sticky-top .navbar-brand span {
+    -webkit-transition: all .1s ease-in-out;
+    -moz-transition: all .1s ease-in-out;
+    -o-transition: all .1s ease-in-out;
+    -ms-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out;
+}
+
+.leaflet-container a,
+a {
+    color: #CC5B33;
+}
+
+.leaflet-container a:hover, .leaflet-container a:active, .leaflet-container a:focus,
+a:hover, a:active, a:focus {
+    color: #997D72;
+}
+
+.btn-warning {
+    background-color: #CC5B33;
+    border-color: #CA5931;
+}
+
+.btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active {
+    background-color: #BB4A22;
+    border-color: #B64527;
+}
+
+.btn-warning:focus.disable-focus {
+    background-color: #CC5B33;
+    border-color: #CA5931;
+}
+
+.btn-primary {
+    background-color: #A1CD81;
+    border-color: #90C170;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
+    background-color: #85B665;
+    border-color: #80B160;
+}
+
+.btn-primary[disabled], .btn-primary.disabled {
+    background-color: #A1CD81;
+    border-color: #90C170;
+}
+
+/*Intro*/
+.intro {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-image: url(../img/ponton01.jpg);
+    background-color: transparent;
+    background-attachment: fixed;
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 13% 0 13% 0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.page-title {
+    padding: 6% 0 1% 0;
+}
+
+.intro h2 {
+    color: #F0F0F0;
+    font-size: 50px;
+    line-height: 60px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-shadow: -5px 0 8px #000;
+}
+
+.intro .slogan {
+    background: -webkit-radial-gradient(rgba(0, 0, 0, 0.4), transparent);
+    background: -o-radial-gradient(rgba(0, 0, 0, 0.4), transparent);
+    background: -moz-radial-gradient(rgba(0, 0, 0, 0.4), transparent);
+    background: -ms-radial-gradient(rgba(0, 0, 0, 0.4), transparent);
+    background: radial-gradient(rgba(0, 0, 0, 0.4), transparent);
+}
+
+.intro .counters .unit,
+.intro .counters .number {
+    color: #F0F0F0;
+    font-size: 34px;
+    text-shadow: -5px 0 8px #000;
+    text-decoration: none;
+    background: -webkit-radial-gradient(rgba(0, 0, 0, 0.45), transparent);
+    background: -o-radial-gradient(rgba(0, 0, 0, 0.45), transparent);
+    background: -moz-radial-gradient(rgba(0, 0, 0, 0.45), transparent);
+    background: -ms-radial-gradient(rgba(0, 0, 0, 0.45), transparent);
+    background: radial-gradient(rgba(0, 0, 0, 0.45), transparent);
+    animation-duration: 1s;
+}
+
+.intro .counters .unit {
+    font-size: 20px;
+}
+
+.intro .counters .days {
+    animation-delay: 2s;
+}
+
+.intro .counters .hours {
+    animation-delay: 3s;
+}
+
+.intro .counters .minutes {
+    animation-delay: 4s;
+}
+
+/*!Intro*/
+
+/*Navigation bar*/
+.main-menu.navbar {
+    font-family: 'Amatic SC', cursive;
+    font-size: 25px;
+    background-color: transparent;
+    padding-top: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.main-menu.navbar.sticky-top {
+    padding-top: 0px;
+    font-size: 21px;
+}
+
+.main-menu.navbar .navbar-right {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.main-menu.navbar.sticky-top .navbar-right {
+    background-color: rgba(161, 205, 129, 0.8);
+}
+
+.main-menu.navbar .navbar-right li > a {
+    color: #000000;
+}
+
+.main-menu.navbar .navbar-right li.active > a {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.main-menu.navbar.sticky-top .navbar-right li.active > a {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.main-menu.navbar-fixed-top {
+    border: none;
+}
+
+.main-menu .navbar-brand,
+.main-menu .navbar-brand:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.main-menu.sticky-top .navbar-brand,
+.main-menu.sticky-top .navbar-brand:hover {
+    background-color: rgba(161, 205, 129, 0.8);
+}
+
+.main-menu .navbar-brand span {
+    color: #000000;
+    text-transform: capitalize;
+    font-family: 'Amatic SC', cursive;
+    font-weight: 700;
+    font-size: 37px;
+}
+
+.main-menu.sticky-top .navbar-brand span {
+    font-size: 30px;
+}
+
+/*!Navigation bar*/
+
+.abstract {
+}
+
+.accommodations .panel-heading {
+    font-family: 'Amatic SC', cursive;
+}
+
+.accommodations .panel-heading p {
+    font-size: 23px;
+    margin: 0;
+    font-weight: 500;
+
+}
+
+.ponton {
+    background-image: url(../img/ponton01.jpg);
+}
+
+.background {
+    background-position: 50% 50%;
+    background-color: transparent;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.justify {
+    text-align: justify;
+}
+
+.accommodation .left-menu.sticky {
+    position: fixed;
+    top: 60px;
+}
