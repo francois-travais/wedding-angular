@@ -13,8 +13,8 @@ var weddingApp = angular.module('weddingApp', [
     'weddingFilters'
 ]);
 
-weddingApp.config(['$routeProvider', 'basepath',
-    function ($routeProvider, basepath) {
+weddingApp.config(['$routeProvider',
+    function ($routeProvider) {
         $routeProvider.
             when('/gifts', {
                 templateUrl: 'partials/gift-list.html',
