@@ -16,23 +16,23 @@ var weddingApp = angular.module('weddingApp', [
 weddingApp.config(['$routeProvider', 'basepath',
     function ($routeProvider, basepath) {
         $routeProvider.
-            when(basepath + '/gifts', {
+            when('/gifts', {
                 templateUrl: 'partials/gift-list.html',
                 controller: 'GiftListCtrl'
             }).
-            when(basepath + '/home', {
+            when('/home', {
                 templateUrl: 'partials/home.html',
                 controller: 'HomeCtrl'
             }).
-            when(basepath + '/accommodation', {
+            when('/accommodation', {
                 templateUrl: 'partials/accommodation.html',
                 controller: 'AccommodationCtrl'
             }).
-            when(basepath + '/contact', {
+            when('/contact', {
                 templateUrl: 'partials/contact.html',
                 controller: 'ContactCtrl'
             }).
             otherwise({
-                redirectTo: basepath + '/home'
+                redirectTo: '/home'
             });
     }]);
