@@ -237,3 +237,9 @@ a:hover, a:active, a:focus {
     position: fixed;
     top: 60px;
 }
+
+.accommodation .left-menu .title {
+    font-family: 'Amatic SC', cursive;
+    font-size: 21px;
+    text-align: center;
+}
