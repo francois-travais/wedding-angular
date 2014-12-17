@@ -32,8 +32,7 @@
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-warning" ng-click="cancel()">Annuler</button>
-    <button type="submit" class="btn btn-primary" ng-click="save(contactForm)"
-            ng-disabled="isDisabled(contactForm)"><span class="glyphicon glyphicon-envelope"></span>
-        Envoyer
+    <button type="submit" class="btn btn-primary" ng-class="{'disabled': isDisabled(contactForm)}" ng-click="save(contactForm)">
+        <span class="glyphicon glyphicon-envelope"></span>Envoyer
     </button>
 </div>

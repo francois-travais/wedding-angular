@@ -249,3 +249,7 @@ a:hover, a:active, a:focus {
     padding-top: 16px;
     padding-bottom: 16px;
 }
+
+.home .explanations h3 {
+    margin-top: 32px;
+}
