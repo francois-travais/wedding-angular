@@ -23,7 +23,7 @@ weddingFilters.filter('accomodationTypeFilter', ['MapIconMarker', function (MapI
                     'lat': el.coordinates[0],
                     'lng': el.coordinates[1],
                     'title': el.name,
-                    'message': '<a href="' + el.url + '">' + el.name + '</a>'
+                    'message': '<a href="' + el.url + '" target="_blank">' + el.name + '</a>'
                 };
                 if (el["icon"]) {
                     markers[el.id]["icon"] = MapIconMarker.icon(el.icon);

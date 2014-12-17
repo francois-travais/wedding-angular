@@ -21,7 +21,7 @@ weddingControllers.controller('HomeCtrl', ['$scope', 'MapIconMarker',
                 lat: 46.791364,
                 lng: 0.624408,
                 title: 'La ferme Alia',
-                message: '<a href="http://www.lafermealia.fr">La ferme Alia</a>',
+                message: '<a href="http://www.lafermealia.fr" target="_blank">La ferme Alia</a>',
                 focus: true,
                 icon: MapIconMarker.icon('img/icons/FermeAlia_map.png')
             }
@@ -89,7 +89,7 @@ weddingControllers.controller('AccommodationCtrl', ['$scope', 'AccommodationReso
                 lat: 46.791364,
                 lng: 0.624408,
                 title: 'La ferme Alia',
-                message: '<a href="http://www.lafermealia.fr">La ferme Alia</a>',
+                message: '<a href="http://www.lafermealia.fr" target="_blank">La ferme Alia</a>',
                 icon: MapIconMarker.icon('img/icons/FermeAlia_map.png')
             }
         };
