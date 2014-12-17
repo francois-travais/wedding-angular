@@ -76,7 +76,7 @@ weddingControllers.controller('AccommodationCtrl', ['$scope', 'AccommodationReso
                 checked: true
             },
             {
-                display: "Chambres d'hôtes",
+                display: "Chambre d'hôtes",
                 checked: true
             },
             {
@@ -95,7 +95,7 @@ weddingControllers.controller('AccommodationCtrl', ['$scope', 'AccommodationReso
         };
 
         $scope.mapCenter = {
-            lat: 46.75,
+            lat: 46.8,
             lng: 0.6,
             zoom: 11
         };
