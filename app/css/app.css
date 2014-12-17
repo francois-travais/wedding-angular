@@ -243,3 +243,9 @@ a:hover, a:active, a:focus {
     font-size: 21px;
     text-align: center;
 }
+
+.contact .contact-btn {
+    width: 100%;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}

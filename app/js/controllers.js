@@ -95,7 +95,7 @@ weddingControllers.controller('AccommodationCtrl', ['$scope', 'AccommodationReso
         };
 
         $scope.mapCenter = {
-            lat: 46.8,
+            lat: 46.78,
             lng: 0.6,
             zoom: 11
         };
