@@ -21,7 +21,7 @@ weddingControllers.controller('HomeCtrl', ['$scope', 'MapIconMarker',
                 lat: 46.791364,
                 lng: 0.624408,
                 title: 'La ferme Alia',
-                message: '<a href="http://www.lafermealia.fr" target="_blank">La ferme Alia</a>',
+                message: '<address><strong>La ferme Alia</strong><br/>Place de la Foucaudière<br/>86100 Saint-Sauveur</address>',
                 focus: true,
                 icon: MapIconMarker.icon('img/icons/FermeAlia_map.png')
             }
