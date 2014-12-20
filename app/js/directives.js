@@ -3,29 +3,6 @@
 /* Directives */
 var weddingDirectives = angular.module('weddingDirectives', []);
 
-//weddingDirectives.directive('mapMarker', [function () {
-//    function controller($scope) {
-//        $scope.$parent.$parent.markers[$scope.id] = {
-//            'lat': $scope.lat,
-//            'lng': $scope.lng,
-//            'title': $scope.name
-//        };
-//    }
-//
-//    return {
-//        transclude: true,
-//        scope: {
-//            lat: '=',
-//            lng: '=',
-//            id: '=',
-//            name: '='
-//        },
-//        restrict: 'E',
-//        template: '',
-//        replace: true,
-//        controller: ["$scope", controller]
-//    }
-//}]);
 
 weddingDirectives.directive('fixedTop', function ($window) {
     function controller($scope, $element, $attrs) {
@@ -36,7 +13,9 @@ weddingDirectives.directive('fixedTop', function ($window) {
                     $element[0].classList.add("sticky-top");
                 }
             } else {
-                $element[0].classList.remove("sticky-top")
+                if ($element[0].classList.contains("sticky-top")) {
+                    $element[0].classList.remove("sticky-top");
+                }
             }
         });
     }
