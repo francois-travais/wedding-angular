@@ -28,14 +28,15 @@ weddingDirectives.directive('fixedTop', function ($window) {
 
 weddingDirectives.directive('stickLeft', function ($window) {
     function controller($scope, $element, $attrs) {
-
         angular.element($window).on('scroll', function () {
-            if ($window.scrollY > 265) {
+            if ($window.scrollY > parseInt($attrs['stickLeft'])) {
                 if (!$element[0].classList.contains("sticky")) {
                     $element[0].classList.add("sticky");
                 }
             } else {
-                $element[0].classList.remove("sticky")
+                if ($element[0].classList.contains("sticky")) {
+                    $element[0].classList.remove("sticky")
+                }
             }
         });
     }
@@ -47,27 +48,24 @@ weddingDirectives.directive('stickLeft', function ($window) {
 });
 
 
-weddingDirectives.directive('counter', ['$interval', 'dateFilter', function ($interval, dateFilter) {
+weddingDirectives.directive('counter', ['$interval', function ($interval) {
     function link(scope, element, attrs) {
         var timeoutId;
-        var targetDate = new Date(2015, 8, 29, 16, 0);
-        var days = $('#days');
-        var hours = $('#hours');
-        var minutes = $('#minutes');
+        //var targetDate = new Date(2015, 8, 29, 16, 0);
+        var targetDate = scope.date;
 
         function updateTime() {
             var now = new Date();
             var s = -now.getTimezoneOffset() * 60 + (targetDate.getTime() - now.getTime()) / 1000;
             var d = Math.floor(s / 86400);
-            days.text(d);
+            scope.days = d;
             s -= d * 86400;
 
             var h = Math.floor(s / 3600);
-            hours.text(h);
+            scope.hours = h;
             s -= h * 3600;
 
-            var m = Math.floor(s / 60);
-            minutes.html(m);
+            scope.minutes = Math.floor(s / 60);
         }
 
         element.on('$destroy', function () {
@@ -81,6 +79,11 @@ weddingDirectives.directive('counter', ['$interval', 'dateFilter', function ($in
     }
 
     return {
+        restrict: 'E',
+        templateUrl: 'partials/components/counter.html',
+        scope: {
+            date: '='
+        },
         link: link
     };
 }]);
