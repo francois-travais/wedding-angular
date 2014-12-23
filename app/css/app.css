@@ -127,25 +127,12 @@ a:hover, a:active, a:focus {
     text-shadow: -5px 0 8px #000;
 }
 
-.intro .slogan {
-    background: -webkit-radial-gradient(rgba(0, 0, 0, 0.4), transparent);
-    background: -o-radial-gradient(rgba(0, 0, 0, 0.4), transparent);
-    background: -moz-radial-gradient(rgba(0, 0, 0, 0.4), transparent);
-    background: -ms-radial-gradient(rgba(0, 0, 0, 0.4), transparent);
-    background: radial-gradient(rgba(0, 0, 0, 0.4), transparent);
-}
-
 .intro .counters .unit,
 .intro .counters .number {
     color: #F0F0F0;
     font-size: 34px;
     text-shadow: -5px 0 8px #000;
     text-decoration: none;
-    background: -webkit-radial-gradient(rgba(0, 0, 0, 0.45), transparent);
-    background: -o-radial-gradient(rgba(0, 0, 0, 0.45), transparent);
-    background: -moz-radial-gradient(rgba(0, 0, 0, 0.45), transparent);
-    background: -ms-radial-gradient(rgba(0, 0, 0, 0.45), transparent);
-    background: radial-gradient(rgba(0, 0, 0, 0.45), transparent);
     animation-duration: 1s;
 }
 
