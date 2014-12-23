@@ -84,6 +84,7 @@ weddingDirectives.directive('counter', ['$interval', function ($interval) {
         scope: {
             date: '='
         },
+        replace: true,
         link: link
     };
 }]);
