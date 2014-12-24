@@ -88,3 +88,28 @@ weddingDirectives.directive('counter', ['$interval', function ($interval) {
         link: link
     };
 }]);
+
+weddingDirectives.directive('weather', ['CurrentWeather', function (CurrentWeather) {
+    function controller($scope, $element, $attrs) {
+        CurrentWeather.get().$promise.then(function (response) {
+            console.log(response);
+            var weather = response.weather[0];
+            $scope.icon = 'http://openweathermap.org/img/w/' + weather.icon + '.png'
+            $scope.wind = response.wind;
+            $scope.description = weather.description;
+            $scope.temperature = response.main.temp;
+            $scope.humidity = response.main.humidity;
+            $scope.pressure = response.main.pressure;
+            $scope.clouds = response.clouds.all;
+        })
+    }
+
+    return {
+        restrict: 'E',
+        templateUrl: 'partials/components/weather.html',
+        scope: {
+        },
+        replace: true,
+        controller: controller
+    };
+}]);

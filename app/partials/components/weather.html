@@ -1,0 +1,52 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h4 class="panel-title">Météo à la ferme Alia</h4>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-2">
+                <img ng-src="{{icon}}">
+            </div>
+            <div class="col-md-2">
+                <h2 style="margin-top: 6px"><strong>{{temperature}} °C</strong></h2>
+            </div>
+            <div class="col-md-2">
+                <svg height="50px" version="1.1" viewBox="0 0 16 16" width="50px" xmlns="http://www.w3.org/2000/svg"
+                     style="transform: rotate({{ wind.deg + 180 - 45 }}deg)">
+                    <g fill="#000000" id="arrow" transform="translate(-144.000000, -192.000000)">
+                        <path d="M144.017456,200 L160.019653,192.043091 L152,208.088623 L152,200 L144.017456,200 Z M144.017456,200"
+                              id="path"></path>
+                    </g>
+                </svg>
+            </div>
+            <div class="col-md-2">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                     height="50px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+                <path d="M15.783,15.387c-0.215-0.175-0.245-0.49-0.07-0.703C16.543,13.67,17,12.361,17,11c0-1.53-0.581-2.924-1.527-3.985
+                    l-2.981,4.077C12.442,11.877,11.797,12.5,11,12.5c-0.829,0-1.5-0.671-1.5-1.5c0-0.797,0.623-1.442,1.408-1.491l4.076-2.982
+                    C13.925,5.581,12.529,5,11,5c-3.309,0-6,2.691-6,6c0,1.361,0.457,2.669,1.287,3.684c0.175,0.215,0.144,0.528-0.07,0.703
+                    C6.124,15.463,6.012,15.5,5.9,15.5c-0.145,0-0.289-0.062-0.387-0.184C4.537,14.124,4,12.592,4,11c0-3.86,3.14-7,7-7
+                    c1.861,0,3.553,0.736,4.809,1.926L16.8,5.2l-0.726,0.992C17.266,7.448,18,9.138,18,11c0,1.592-0.537,3.125-1.514,4.316
+                    C16.312,15.529,15.997,15.562,15.783,15.387z M14.5,19.2c-1,0.5-2.2,0.8-3.5,0.8c-5,0-9-4-9-9s4-9,9-9c4.5,0,8.3,3.4,8.9,7.7L20,9.6
+                    l1.2,1.5c0.2,0.2,0.399,0.5,0.8,1c0-0.4,0.1-0.7,0.1-1.1c0-6.1-4.898-11-11-11S0,4.9,0,11c0,6.1,4.9,11,11,11c1.3,0,2.5-0.2,3.7-0.7
+                    C14.6,20.9,14.5,20.4,14.5,19.8C14.5,19.6,14.5,19.4,14.5,19.2z M20,12c0,0-4,5.1-4,7.8c0,2.3,1.8,4.2,4,4.2s4-1.9,4-4.2
+                    C24,17.1,20,12,20,12z"></path>
+                </svg>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-2 col-md-2">
+                <p class="text-capitalize">{{description}}</p>
+            </div>
+            <div class="col-md-2">
+                <p>{{pressure}} hpa</p>
+            </div>
+            <div class="col-md-2">
+                <p>{{wind.speed}} m/s</p>
+            </div>
+            <div class="col-md-2">
+                <p>{{humidity}} %</p>
+            </div>
+        </div>
+    </div>
+</div>

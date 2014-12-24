@@ -260,6 +260,15 @@ a:hover, a:active, a:focus {
     padding-bottom: 16px;
 }
 
-.home .explanations h3 {
-    margin-top: 32px;
+.home .map {
+    margin-bottom: 32px;
+}
+
+.panel-primary {
+    border-color: #997D72;
+}
+
+.panel-primary > .panel-heading {
+    background-color: #997D72;
+    border-color: #997D72;
 }

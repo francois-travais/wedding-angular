@@ -13,21 +13,21 @@ weddingServices.factory('Gift', ['$resource',
 
 weddingServices.factory('AccommodationResource', ['$resource', 'restHost', 'restPort', 'restPath',
     function ($resource, restHost, restPort, restPath) {
-        return $resource('http://'+ restHost + ':' + restPort + '/' + restPath + '/accommodations', {}, {
+        return $resource('http://' + restHost + ':' + restPort + '/' + restPath + '/accommodations', {}, {
             query: {method: 'GET'}
         });
     }]);
 
 weddingServices.factory('ContactResource', ['$resource', 'restHost', 'restPort', 'restPath',
     function ($resource, restHost, restPort, restPath) {
-        return $resource('http://'+ restHost + ':' + restPort + '/' + restPath + '/contact', {}, {
+        return $resource('http://' + restHost + ':' + restPort + '/' + restPath + '/contact', {}, {
             send: {method: 'POST'}
         });
     }]);
 
 weddingServices.factory('ReplyResource', ['$resource', 'restHost', 'restPort', 'restPath',
     function ($resource, restHost, restPort, restPath) {
-        return $resource('http://'+ restHost + ':' + restPort + '/' + restPath + '/reply', {}, {
+        return $resource('http://' + restHost + ':' + restPort + '/' + restPath + '/reply', {}, {
             send: {method: 'POST'}
         });
     }]);
@@ -43,3 +43,7 @@ weddingServices.factory('MapIconMarker', function () {
     };
     return {icon: icon};
 });
+
+weddingServices.factory('CurrentWeather', ['$resource', function ($resource) {
+    return $resource('http://api.openweathermap.org/data/2.5/weather?id=3026141&units=metric&lang=fr');
+}]);
