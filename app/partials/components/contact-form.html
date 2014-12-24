@@ -12,6 +12,13 @@
                        placeholder="Le nom des participants" required/>
             </div>
         </div>
+        <div ng-class="{'form-group': true, 'has-error': contactForm.cfPassword.$invalid && contactForm.cfPassword.$dirty}">
+            <label class="control-label col-md-4" for="cfPassword">Mot de passe: </label>
+
+            <div class="col-md-6">
+                <input class="form-control" id="cfPassword" type="password" ng-model="contactForm.password" name="cfPassword" required />
+            </div>
+        </div>
         <div ng-class="{'form-group': true, 'has-error': contactForm.cfMail.$invalid && contactForm.cfMail.$dirty}">
             <label class="control-label col-md-4" for="cfMail">Adresse email: </label>
 

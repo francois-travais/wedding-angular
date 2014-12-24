@@ -129,7 +129,7 @@ weddingControllers.controller('ContactCtrl', ['$scope', '$modal',
             });
 
             modalInstance.result.then(function () {
-                $log.info('Contact form modal dismissed at: ' + new Date());
+                console.info('Contact form modal dismissed at: ' + new Date());
             });
         };
     }]);
@@ -141,7 +141,8 @@ weddingControllers.controller('ReplyFormCtrl', ['$scope', '$modalInstance', 'Rep
             email: '',
             adultNb: 1,
             childNb: 0,
-            comment: ''
+            comment: '',
+            password: ''
         };
 
         $scope.alerts = [];
@@ -159,7 +160,7 @@ weddingControllers.controller('ReplyFormCtrl', ['$scope', '$modalInstance', 'Rep
                     $modalInstance.close('reply form saved');
                 })
                 .catch(function () {
-                    $scope.alerts.push({ type: 'danger', msg: "Les informations n'ont pas put être transmise."});
+                    $scope.alerts.push({type: 'danger', msg: "Les informations n'ont pas put être transmise."});
                     console.error("Something went wrong while sending reply form")
                 });
         };
@@ -198,6 +199,7 @@ weddingControllers.controller('ContactFormCtrl', ['$scope', '$modalInstance', 'C
         $scope.contactForm = {
             name: '',
             email: '',
+            password: '',
             message: ''
         };
 
@@ -211,13 +213,20 @@ weddingControllers.controller('ContactFormCtrl', ['$scope', '$modalInstance', 'C
             if ($scope.isDisabled(contact)) return;
             ContactResource.save($scope.contactForm).$promise
                 .then(function (response) {
-                    console.log("Contact send: " + response);
+                    console.log("Contact send: ", response);
                     contact.$dirty = false;
                     $modalInstance.close('contact form saved');
                 })
-                .catch(function () {
-                    $scope.alerts.push({ type: 'danger', msg: "Les informations n'ont pas put être transmise."});
-                    console.error("Something went wrong while sending contact form");
+                .catch(function (response) {
+                    $scope.alerts = [];
+                    console.log(response);
+                    if (response.status == 403) {
+                        $scope.alerts.push({type: 'danger', msg: "Le mot de passe est incorrect"});
+                        console.error("Wrong password");
+                    } else {
+                        $scope.alerts.push({type: 'danger', msg: "Les informations n'ont pas put être transmise."});
+                        console.error("Something went wrong while sending contact form");
+                    }
                 });
 
         };
