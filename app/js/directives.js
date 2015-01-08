@@ -97,7 +97,7 @@ weddingDirectives.directive('weather', ['CurrentWeather', function (CurrentWeath
             $scope.icon = 'http://openweathermap.org/img/w/' + weather.icon + '.png'
             $scope.wind = response.wind;
             $scope.description = weather.description;
-            $scope.temperature = response.main.temp;
+            $scope.temperature = (response.main.temp).toFixed(0);
             $scope.humidity = response.main.humidity;
             $scope.pressure = response.main.pressure;
             $scope.clouds = response.clouds.all;
