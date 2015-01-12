@@ -46,6 +46,36 @@ weddingControllers.controller('GiftListCtrl', ['$scope', 'Gift',
     function ($scope, Gift) {
         $scope.gifts = Gift.query();
 
+        $scope.types = [
+            {
+                display: "Activité",
+                checked: true
+            },
+            {
+                display: "Restaurant",
+                checked: true
+            },
+            {
+                display: "Hôtel",
+                checked: true
+            }
+        ];
+
+        $scope.cities = [
+            {
+                display: "Rome",
+                checked: true
+            },
+            {
+                display: "Venise",
+                checked: true
+            },
+            {
+                display: "Florence",
+                checked: true
+            }
+        ];
+
         $scope.markers = {};
 
         $scope.mapCenter = {
@@ -57,6 +87,20 @@ weddingControllers.controller('GiftListCtrl', ['$scope', 'Gift',
         $scope.mapDefaults = {
             scrollWheelZoom: false,
             doubleClickZoom: true
+        };
+
+        var step = 10;
+
+        $scope.minus = function(gift) {
+            if (gift.to_book >= step) {
+                gift.to_book -= step;
+            }
+        };
+
+        $scope.plus = function(gift) {
+            if (gift.price - gift.booked >= step) {
+                gift.to_book += step;
+            }
         };
     }]);
 

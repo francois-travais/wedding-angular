@@ -243,15 +243,19 @@ a:hover, a:active, a:focus {
     background-attachment: fixed;
 }
 
-.accommodation .left-menu.sticky {
+.accommodation .left-menu.sticky, .gifts .left-menu.sticky  {
     position: fixed;
     top: 60px;
 }
 
-.accommodation .left-menu .title {
+.accommodation .left-menu .title, .gifts .left-menu .title {
     font-family: 'Amatic SC', cursive;
     font-size: 21px;
     text-align: center;
+}
+
+.accommodation .left-menu .items, .gifts .left-menu .items {
+    min-width: 167px;
 }
 
 .contact .contact-btn {

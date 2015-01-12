@@ -1,35 +1,95 @@
 <div class="intro page-title">
     <h2>Liste de Mariage</h2>
 </div>
-<div class="container">
-    <div class="row">
-        <leaflet defaults="mapDefaults" center="mapCenter" markers="markers" style="height: 480px;"></leaflet>
-    </div>
-    <!--<div class="jumbotron map" id="map"></div>-->
-    <div class="row">
-        <!--Body content-->
-        <div ng-repeat="gift in gifts" class="panel panel-default">
-            <map-marker lat="gift.coordinates[0]" lng="gift.coordinates[1]" id="gift.id" name="gift.name"></map-marker>
-            <div class="panel-heading"><a href="#/phones/{{gift.id}}"><h4>{{gift.name}}</h4></a></div>
-            <div class="panel-body">
-                <div class="row">
-                    <a class="col-md-4" href="#/phones/{{gift.id}}"><img class="img-thumbnail img-responsive"
-                                                                         ng-src="{{gift.imageUrl}}"></a>
+<div class="container gifts">
+    <div class="row text-justify">
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+            consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+            sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+            sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+            elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+            vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+            Lorem ipsum dolor sit amet.</p>
 
-                    <div class="col-md-8">
-                        <div class="">{{gift.snippet}}</div>
-                        <div class=""><span style="font-weight: bold;">Prix:</span> {{gift.price}} €</div>
-                        <div class=""><span style="font-weight: bold;">Déjà resérvé:</span> {{gift.booked}} €</div>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
-                                 aria-valuemax="100" style="width: 0%;">
-                                0%
-                            </div>
-                        </div>
-                    </div>
+        <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu
+            feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
+            delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing
+            elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+    </div>
+    <div class="row">
+        <div class="col-md-3" style="padding-left: 0px;">
+            <div class="left-menu" stick-left="265">
+                <p class="title">Catégories</p>
+
+                <div class="items btn-group-vertical" role="group">
+                    <button ng-repeat="type in types" class="btn btn-warning disable-focus" ng-model="type.checked"
+                            btn-checkbox><span style="float: left; top: 2px; margin-right: 2px;"
+                                               ng-class="{'glyphicon': true, 'glyphicon-unchecked':!type.checked, 'glyphicon-check':type.checked}"></span><span
+                            style="position: relative;">{{type.display}}</span>
+                    </button>
+                </div>
+
+                <p class="title" style="margin-top: 10px;">Villes</p>
+
+                <div class="items btn-group-vertical" role="group">
+                    <button ng-repeat="city in cities" class="btn btn-warning disable-focus" ng-model="city.checked"
+                            btn-checkbox><span style="float: left; top: 2px; margin-right: 2px;"
+                                               ng-class="{'glyphicon': true, 'glyphicon-unchecked':!city.checked, 'glyphicon-check':city.checked}"></span><span
+                            style="position: relative;">{{city.display}}</span>
+                    </button>
                 </div>
             </div>
         </div>
+        <div class="col-md-9">
+            <leaflet defaults="mapDefaults" center="mapCenter" markers="markers" class="row"
+                     style="height: 480px; margin-bottom: 1%;"></leaflet>
+            <div ng-repeat="gift in gifts" class="row panel panel-default">
+                <div class="panel-heading"><a href="#/{{gift.id}}"><h4>{{gift.name}}</h4></a></div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img class="img-thumbnail img-responsive" ng-src="{{gift.imageUrl}}">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="container-fluid" style="padding-left: 0;">
+                                <div class="row">{{gift.snippet}}</div>
+                                <div class="row"><span style="font-weight: bold;">Prix:</span> {{gift.price}} €
+                                </div>
+                                <div class="row"><span style="font-weight: bold;">Déjà resérvé:</span>
+                                    {{gift.booked}} €
+                                </div>
+                                <div class="row">
+                                    <form class="form-inline">
+                                        <div class="form-group col-md-8" style="padding-left: 0;">
+                                            <label class="sr-only" for="amount">Montant (en €)</label>
 
+                                            <div class="input-group">
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-default" type="button"
+                                                            ng-click="minus(gift)">-</button>
+                                                    <button class="btn btn-default" type="button"
+                                                            ng-click="plus(gift)">+</button>
+                                                </span>
+                                                <input type="text" class="form-control" id="amount"
+                                                       ng-model="gift.to_book"/>
+                                                <span class="input-group-addon">€</span>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary col-md-4">Offrir</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <progress max="gift.price" style="margin-bottom: 0;">
+                        <bar value="gift.booked" class="progress-bar-striped"><span>{{gift.booked}} €</span>
+                        </bar>
+                        <bar type="success" value="gift.to_book"><span>{{gift.to_book}} €</span></bar>
+                    </progress>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

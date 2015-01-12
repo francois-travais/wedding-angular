@@ -2,6 +2,7 @@
   {
     "price": 500,
     "booked": 20,
+    "to_book": 0,
     "id": "avion_paris_rome",
     "imageUrl": "img/gifts/avion-01.jpg",
     "name": "Billet d'avion Paris-Rome",
@@ -11,7 +12,28 @@
   {
     "price": 10,
     "booked": 2,
+    "to_book": 0,
     "id": "cafe_saint_marc_venise",
+    "imageUrl": "img/gifts/cafe_place_saint_marc_venise.jpg",
+    "name": "Un café place Saint Marc à Venise",
+    "snippet": "Pour nous laisser prendre le temps d'admirer cette magnifique place en dégustant un bon café italien.",
+    "coordinates": [45.434, 12.338]
+  },
+  {
+    "price": 400,
+    "booked": 30,
+    "to_book": 60,
+    "id": "cafe_dsfsaint_marc_venise",
+    "imageUrl": "img/gifts/cafe_place_saint_marc_venise.jpg",
+    "name": "Un café place Saint Marc à Venise",
+    "snippet": "Pour nous laisser prendre le temps d'admirer cette magnifique place en dégustant un bon café italien.",
+    "coordinates": [45.434, 12.338]
+  },
+  {
+    "price": 100,
+    "booked": 20,
+    "to_book": 40,
+    "id": "cafe_sasdfsint_marc_venise",
     "imageUrl": "img/gifts/cafe_place_saint_marc_venise.jpg",
     "name": "Un café place Saint Marc à Venise",
     "snippet": "Pour nous laisser prendre le temps d'admirer cette magnifique place en dégustant un bon café italien.",

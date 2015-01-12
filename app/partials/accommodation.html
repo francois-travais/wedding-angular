@@ -15,7 +15,7 @@
             <div class="left-menu" stick-left="265">
                 <p class="title">Types d'hébergement</p>
 
-                <div class="btn-group-vertical" role="group">
+                <div class="items btn-group-vertical" role="group">
                     <button ng-repeat="type in types" class="btn btn-warning disable-focus" ng-model="type.checked"
                             btn-checkbox><span style="float: left; top: 2px; margin-right: 2px;"
                                                ng-class="{'glyphicon': true, 'glyphicon-unchecked':!type.checked, 'glyphicon-check':type.checked}"></span><span
@@ -26,7 +26,7 @@
         </div>
         <div class="col-md-9">
             <leaflet class="row" defaults="mapDefaults" center="mapCenter" markers="markers"
-                     style="height: 450px;"></leaflet>
+                     style="height: 450px; margin-bottom: 2%;"></leaflet>
 
             <div ng-repeat="accommodation in accommodations | accomodationTypeFilter:types:'accommodation':markers"
                  class="row panel panel-default accommodations" style="margin-top: 1%;">
