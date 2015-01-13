@@ -83,11 +83,15 @@
                             </div>
                         </div>
                     </div>
-                    <progress max="gift.price" style="margin-bottom: 0;">
-                        <bar value="gift.booked" class="progress-bar-striped"><span>{{gift.booked}} €</span>
-                        </bar>
-                        <bar type="success" value="gift.to_book"><span>{{gift.to_book}} €</span></bar>
-                    </progress>
+                    <div class="row" style="margin-top: 10px">
+                        <div class="col-md-offset-1 col-md-10">
+                            <progress max="gift.price" style="margin-bottom: 0;">
+                                <bar value="gift.booked" type="warning" class="progress-bar-striped"><span>{{gift.booked}} €</span>
+                                </bar>
+                                <bar type="success" value="gift.to_book"><span>{{gift.to_book}} €</span></bar>
+                            </progress>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
