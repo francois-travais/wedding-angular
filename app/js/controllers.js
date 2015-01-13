@@ -266,3 +266,27 @@ weddingControllers.controller('ContactFormCtrl', ['$scope', '$modalInstance', 'C
             $modalInstance.dismiss('cancel');
         };
     }]);
+
+weddingControllers.controller('GiftBookFormCtrl', ['$scope', '$modalInstance',
+    function ($scope, $modalInstance) {
+        $scope.bookingForm = {
+            password: '',
+            name: '',
+            message: ''
+        };
+
+        $scope.alerts = [];
+
+        $scope.isDisabled = function (form) {
+            return !form.$dirty || form.$invalid;
+        };
+
+        $scope.save = function (form) {
+            if ($scope.isDisabled(form)) return;
+
+        };
+
+        $scope.cancel = function () {
+            $modalInstance.dismiss('cancel');
+        };
+    }]);

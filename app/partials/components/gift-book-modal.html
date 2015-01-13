@@ -1,0 +1,43 @@
+<div class="modal-header">
+    <h3 class="modal-title">Etes- vous sûr de vouloir offrir ce cadeau ?</h3>
+</div>
+<div class="modal-body">
+    <alert type="{{alert.type}}" ng-repeat="alert in alerts">{{alert.msg}}</alert>
+    <form name="bookingForm" class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-md-4">Cadeau :</label>
+
+            <div class="col-md-6">
+                <p class="form-control-static">{{gift.to_book}}€ pour {{gift.name}}</p>
+            </div>
+        </div>
+        <div ng-class="{'form-group': true, 'has-error': bookingForm.bfName.$invalid && bookingForm.bfName.$dirty}">
+            <label class="control-label col-md-4" for="bfName">Nom(s): </label>
+
+            <div class="col-md-6">
+                <input class="form-control" id="bfName" type="text" ng-model="bookingForm.name" name="bfName" required/>
+            </div>
+        </div>
+        <div ng-class="{'form-group': true, 'has-error': bookingForm.bfPassword.$invalid && bookingForm.bfPassword.$dirty}">
+            <label class="control-label col-md-4" for="bfPassword">Mot de passe: </label>
+
+            <div class="col-md-6">
+                <input class="form-control" id="bfPassword" type="text" ng-model="bookingForm.password" name="bfPassword" required />
+            </div>
+        </div>
+        <div ng-class="{'form-group': true, 'has-error': bookingForm.bfMessage.$invalid && bookingForm.bfMessage.$dirty}">
+            <label class="control-label col-md-4" for="bfMessage">Note: </label>
+
+            <div class="col-md-6">
+                <textarea class="form-control" id="bfMessage" ng-model="bookingForm.message" name="bfMessage"
+                          rows="3"></textarea>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-warning" ng-click="cancel()">Annuler</button>
+    <button type="submit" class="btn btn-primary" ng-class="{'disabled': isDisabled(bookingForm)}" ng-click="save(bookingForm)">
+        <span class="glyphicon glyphicon-envelope"></span>Confirmer
+    </button>
+</div>

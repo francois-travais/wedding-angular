@@ -133,7 +133,7 @@ weddingDirectives.directive('weddingNumber', function () {
     }
 
     return {
-        require: 'ngModel',
+        require: '^ngModel',
         restrict: 'A',
         controller: controller,
         link: link
@@ -154,7 +154,7 @@ weddingDirectives.directive('weddingMin', function () {
     }
 
     return {
-        require: ['weddingNumber', 'ngModel'],
+        require: ['weddingNumber', '^ngModel'],
         restrict: 'A',
         link: link
     };
@@ -174,7 +174,7 @@ weddingDirectives.directive('weddingMax', function () {
     }
 
     return {
-        require: ['weddingNumber', 'ngModel'],
+        require: ['weddingNumber', '^ngModel'],
         restrict: 'A',
         link: link
     };
@@ -185,7 +185,7 @@ weddingDirectives.directive('giftListItem', function () {
 
     }
 
-    function controller($scope, $element, $attrs) {
+    function controller($scope, $element, $attrs, $modal) {
         var step = 10;
 
         $scope.gift.to_book = 0;
@@ -210,13 +210,22 @@ weddingDirectives.directive('giftListItem', function () {
             return !form.$dirty || form.$invalid;
         };
 
-        $scope.save = function (form) {
-            console.log(form);
-            if ($scope.isDisabled(form)) return;
-        };
-
         $scope.hasError = function (form) {
             return form.$dirty && form.$invalid;
+        };
+
+        $scope.openConfirmModel = function (form) {
+            if ($scope.isDisabled(form)) return;
+
+            var modalInstance = $modal.open({
+                templateUrl: 'partials/components/gift-book-modal.html',
+                controller: 'GiftBookFormCtrl',
+                scope: $scope
+            });
+
+            modalInstance.result.then(function () {
+                console.info('Booking gift form of ' + $scope.gift.id + ' modal dismissed at: ' + new Date());
+            });
         };
     }
 
