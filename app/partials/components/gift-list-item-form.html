@@ -1,0 +1,18 @@
+<form class="form-inline" name="form">
+    <div class="form-group col-md-8" ng-class="{'has-error': hasError(form)}" style="padding-left: 0;">
+        <label class="sr-only" for="amount">Montant (en €)</label>
+
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button"
+                        ng-click="minus()">-</button>
+                <button class="btn btn-default" type="button"
+                        ng-click="plus()">+</button>
+            </span>
+            <input type="text" class="form-control" id="amount"
+                   ng-model="gift.to_book" wedding-number wedding-min="0" wedding-max="{{available()}}" />
+            <span class="input-group-addon">€</span>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary col-md-4" ng-class="{'disabled': isDisabled(form)}" ng-click="save(form)">Offrir</button>
+</form>

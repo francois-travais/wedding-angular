@@ -113,3 +113,120 @@ weddingDirectives.directive('weather', ['CurrentWeather', function (CurrentWeath
         controller: controller
     };
 }]);
+
+weddingDirectives.directive('weddingNumber', function () {
+    function link(scope, element, attrs, ctrl) {
+        ctrl.$parsers.push(function (viewValue) {
+            return parseInt(viewValue);
+        });
+
+        ctrl.$formatters.push(function (value) {
+            if (value) {
+                value = parseInt(value);
+            }
+            return value;
+        })
+    }
+
+    function controller($scope, $element, $attrs) {
+
+    }
+
+    return {
+        require: 'ngModel',
+        restrict: 'A',
+        controller: controller,
+        link: link
+    };
+});
+
+weddingDirectives.directive('weddingMin', function () {
+    function link(scope, element, attrs, ctrls) {
+        var nbCtrl = ctrls[0], modelCtrl = ctrls[1];
+        var minVal = parseInt(attrs.weddingMin);
+
+        modelCtrl.$validators.weddingMin = function (modelValue, viewValue) {
+            if (modelCtrl.$isEmpty(modelValue) || !minVal) {
+                return true;
+            }
+            return modelValue >= minVal;
+        };
+    }
+
+    return {
+        require: ['weddingNumber', 'ngModel'],
+        restrict: 'A',
+        link: link
+    };
+});
+
+weddingDirectives.directive('weddingMax', function () {
+    function link(scope, element, attrs, ctrls) {
+        var nbCtrl = ctrls[0], modelCtrl = ctrls[1];
+        var maxVal = parseInt(attrs.weddingMax);
+
+        modelCtrl.$validators.weddingMax = function (modelValue, viewValue) {
+            if (modelCtrl.$isEmpty(modelValue) || !maxVal) {
+                return true;
+            }
+            return modelValue <= maxVal;
+        };
+    }
+
+    return {
+        require: ['weddingNumber', 'ngModel'],
+        restrict: 'A',
+        link: link
+    };
+});
+
+weddingDirectives.directive('giftListItem', function () {
+    function link(scope, element, attrs) {
+
+    }
+
+    function controller($scope, $element, $attrs) {
+        var step = 10;
+
+        $scope.gift.to_book = 0;
+
+        $scope.available = function() {
+            return $scope.gift.price - $scope.gift.booked;
+        };
+
+        $scope.minus = function() {
+            if ($scope.gift.to_book >= step) {
+                $scope.gift.to_book -= step;
+            }
+        };
+
+        $scope.plus = function() {
+            if ($scope.available() >= step) {
+                $scope.gift.to_book += step;
+            }
+        };
+
+        $scope.isDisabled = function (form) {
+            return !form.$dirty || form.$invalid;
+        };
+
+        $scope.save = function (form) {
+            console.log(form);
+            if ($scope.isDisabled(form)) return;
+        };
+
+        $scope.hasError = function (form) {
+            return form.$dirty && form.$invalid;
+        };
+    }
+
+    return {
+        restrict: 'E',
+        templateUrl: 'partials/components/gift-list-item-form.html',
+        scope: {
+            gift: '=gift'
+        },
+        link: link,
+        controller: controller
+    };
+});

@@ -89,19 +89,6 @@ weddingControllers.controller('GiftListCtrl', ['$scope', 'Gift',
             doubleClickZoom: true
         };
 
-        var step = 10;
-
-        $scope.minus = function(gift) {
-            if (gift.to_book >= step) {
-                gift.to_book -= step;
-            }
-        };
-
-        $scope.plus = function(gift) {
-            if (gift.price - gift.booked >= step) {
-                gift.to_book += step;
-            }
-        };
     }]);
 
 weddingControllers.controller('AccommodationCtrl', ['$scope', 'AccommodationResource', 'MapIconMarker',
