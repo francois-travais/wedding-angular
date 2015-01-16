@@ -194,18 +194,6 @@ weddingDirectives.directive('giftListItem', function () {
             return $scope.gift.price - $scope.gift.booked;
         };
 
-        $scope.minus = function() {
-            if ($scope.gift.to_book >= step) {
-                $scope.gift.to_book -= step;
-            }
-        };
-
-        $scope.plus = function() {
-            if ($scope.available() >= step) {
-                $scope.gift.to_book += step;
-            }
-        };
-
         $scope.isDisabled = function (form) {
             return !form.$dirty || form.$invalid;
         };
@@ -237,5 +225,48 @@ weddingDirectives.directive('giftListItem', function () {
         },
         link: link,
         controller: controller
+    };
+});
+
+weddingDirectives.directive('weddingMinus', function () {
+    function link(scope, element, attrs, ctrl) {
+        var step = 10;
+
+        scope.minus = function() {
+            if (ctrl.$viewValue >= step) {
+                ctrl.$setViewValue(ctrl.$viewValue - step);
+                console.log("new val", ctrl.$viewValue);
+                console.log(element);
+            }
+        };
+    }
+
+    return {
+        require: 'ngModel',
+        restrict: 'A',
+        link: link
+    };
+});
+
+weddingDirectives.directive('weddingPlus', function () {
+    function link(scope, element, attrs, ctrl) {
+        var step = 10;
+        var available = parseInt(attrs.weddingPlus);
+
+        scope.plus = function() {
+            if (available - ctrl.$viewValue >= step) {
+                ctrl.$setViewValue(ctrl.$viewValue + step);
+                console.log("new val", ctrl.$viewValue);
+                console.log(element);
+            } else {
+                ctrl.$setViewValue(available);
+            }
+        };
+    }
+
+    return {
+        require: 'ngModel',
+        restrict: 'A',
+        link: link
     };
 });

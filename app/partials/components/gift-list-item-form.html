@@ -4,13 +4,13 @@
 
         <div class="input-group">
             <span class="input-group-btn">
-                <button class="btn btn-default" type="button"
+                <button ng-model="gift.to_book" wedding-minus="true" class="btn btn-default" type="button"
                         ng-click="minus()">-</button>
-                <button class="btn btn-default" type="button"
+                <button ng-model="gift.to_book" wedding-plus="{{available()}}" class="btn btn-default" type="button"
                         ng-click="plus()">+</button>
             </span>
             <input type="text" class="form-control" id="amount"
-                   ng-model="gift.to_book" wedding-number wedding-min="0" wedding-max="{{available()}}" />
+                   ng-model="gift.to_book" wedding-number wedding-min="1" wedding-max="{{available()}}" />
             <span class="input-group-addon">€</span>
         </div>
     </div>
