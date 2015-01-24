@@ -4,10 +4,10 @@
 
 var weddingServices = angular.module('weddingServices', ['ngResource', 'config']);
 
-weddingServices.factory('Gift', ['$resource',
-    function ($resource) {
-        return $resource('gifts/:giftId.json', {}, {
-            query: {method: 'GET', params: {giftId: 'gifts'}, isArray: true}
+weddingServices.factory('GiftResource', ['$resource', 'restHost', 'restPort', 'restPath',
+    function ($resource, restHost, restPort, restPath) {
+        return $resource('http://' + restHost + ':' + restPort + '/' + restPath + '/gifts', {}, {
+            query: {method: 'GET'}
         });
     }]);
 

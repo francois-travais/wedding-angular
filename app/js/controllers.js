@@ -42,9 +42,17 @@ weddingControllers.controller('HomeCtrl', ['$scope', 'MapIconMarker',
 
     }]);
 
-weddingControllers.controller('GiftListCtrl', ['$scope', 'Gift',
-    function ($scope, Gift) {
-        $scope.gifts = Gift.query();
+weddingControllers.controller('GiftListCtrl', ['$scope', 'GiftResource',
+    function ($scope, GiftResource) {
+        GiftResource.query().$promise
+            .then(function (gifts) {
+                console.log(gifts);
+                $scope.gifts = [];
+                angular.forEach(gifts.gifts, function (gift) {
+                    gift.to_book = 0;
+                    $scope.gifts.push(gift);
+                });
+            });
 
         $scope.types = [
             {
