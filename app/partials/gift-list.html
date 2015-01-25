@@ -45,7 +45,7 @@
         <div class="col-md-9">
             <leaflet defaults="mapDefaults" center="mapCenter" markers="markers" class="row"
                      style="height: 480px; margin-bottom: 1%;"></leaflet>
-            <div ng-repeat="gift in gifts" class="row panel panel-default">
+            <div ng-repeat="gift in gifts | giftTypeFilter:types:markers | giftCityFilter:cities:markers" class="row panel panel-default">
                 <div class="panel-heading"><a href="#/{{gift.id}}"><h4>{{gift.name}}</h4></a></div>
                 <div class="panel-body">
                     <div class="row">
