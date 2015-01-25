@@ -180,7 +180,7 @@ weddingDirectives.directive('weddingMax', function () {
     };
 });
 
-weddingDirectives.directive('giftListItem', function () {
+weddingDirectives.directive('giftListItem', ['GiftResource', function (GiftResource) {
     function link(scope, element, attrs) {
 
     }
@@ -188,7 +188,10 @@ weddingDirectives.directive('giftListItem', function () {
     function controller($scope, $element, $attrs, $modal) {
         var step = 10;
 
-        $scope.gift.to_book = 0;
+        function init() {
+            $scope.gift.to_book = 0;
+        }
+        init();
 
         $scope.available = function() {
             return $scope.gift.price - $scope.gift.booked;
@@ -213,6 +216,12 @@ weddingDirectives.directive('giftListItem', function () {
 
             modalInstance.result.then(function () {
                 console.info('Booking gift form of ' + $scope.gift.id + ' modal dismissed at: ' + new Date());
+                GiftResource.get({id: $scope.gift.id}).$promise.then(function (gift) {
+                    $scope.gift = gift.gift;
+                    init();
+                    form.$dirty = false;
+                    console.log($scope.gift);
+                })
             });
         };
     }
@@ -226,7 +235,7 @@ weddingDirectives.directive('giftListItem', function () {
         link: link,
         controller: controller
     };
-});
+}]);
 
 weddingDirectives.directive('weddingMinus', function () {
     function link(scope, element, attrs, ctrl) {
@@ -235,8 +244,6 @@ weddingDirectives.directive('weddingMinus', function () {
         scope.minus = function() {
             if (ctrl.$viewValue >= step) {
                 ctrl.$setViewValue(ctrl.$viewValue - step);
-                console.log("new val", ctrl.$viewValue);
-                console.log(element);
             }
         };
     }
@@ -256,8 +263,6 @@ weddingDirectives.directive('weddingPlus', function () {
         scope.plus = function() {
             if (available - ctrl.$viewValue >= step) {
                 ctrl.$setViewValue(ctrl.$viewValue + step);
-                console.log("new val", ctrl.$viewValue);
-                console.log(element);
             } else {
                 ctrl.$setViewValue(available);
             }

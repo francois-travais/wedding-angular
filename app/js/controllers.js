@@ -42,9 +42,9 @@ weddingControllers.controller('HomeCtrl', ['$scope', 'MapIconMarker',
 
     }]);
 
-weddingControllers.controller('GiftListCtrl', ['$scope', 'GiftResource',
-    function ($scope, GiftResource) {
-        GiftResource.query().$promise
+weddingControllers.controller('GiftListCtrl', ['$scope', 'GiftsResource',
+    function ($scope, GiftsResource) {
+        GiftsResource.query().$promise
             .then(function (gifts) {
                 console.log(gifts);
                 $scope.gifts = [];
@@ -252,7 +252,7 @@ weddingControllers.controller('ContactFormCtrl', ['$scope', '$modalInstance', 'C
             if ($scope.isDisabled(contact)) return;
             ContactResource.save($scope.contactForm).$promise
                 .then(function (response) {
-                    console.log("Contact send: ", response);
+                    console.log("Contact sent: ", response);
                     contact.$dirty = false;
                     $modalInstance.close('contact form saved');
                 })
@@ -275,8 +275,8 @@ weddingControllers.controller('ContactFormCtrl', ['$scope', '$modalInstance', 'C
         };
     }]);
 
-weddingControllers.controller('GiftBookFormCtrl', ['$scope', '$modalInstance',
-    function ($scope, $modalInstance) {
+weddingControllers.controller('GiftBookFormCtrl', ['$scope', '$modalInstance', 'BookResource',
+    function ($scope, $modalInstance, BookResource) {
         $scope.bookingForm = {
             password: '',
             name: '',
@@ -291,7 +291,31 @@ weddingControllers.controller('GiftBookFormCtrl', ['$scope', '$modalInstance',
 
         $scope.save = function (form) {
             if ($scope.isDisabled(form)) return;
-
+            var booking = {
+                gift: $scope.gift.id,
+                booked: $scope.gift.to_book,
+                password: form.password,
+                name: form.name,
+                message: form.message
+            };
+            console.log(booking);
+            BookResource.book(booking).$promise
+                .then(function (response) {
+                    console.log("Booking sent: ", response);
+                    form.$dirty = false;
+                    $modalInstance.close('booking form saved');
+                })
+                .catch(function (response) {
+                    $scope.alerts = [];
+                    console.log(response);
+                    if (response.status == 403) {
+                        $scope.alerts.push({type: 'danger', msg: "Le mot de passe est incorrect"});
+                        console.error("Wrong password");
+                    } else {
+                        $scope.alerts.push({type: 'danger', msg: "Les informations n'ont pas put être transmise."});
+                        console.error("Something went wrong while sending booking form");
+                    }
+                });
         };
 
         $scope.cancel = function () {

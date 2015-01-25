@@ -4,10 +4,24 @@
 
 var weddingServices = angular.module('weddingServices', ['ngResource', 'config']);
 
-weddingServices.factory('GiftResource', ['$resource', 'restHost', 'restPort', 'restPath',
+weddingServices.factory('GiftsResource', ['$resource', 'restHost', 'restPort', 'restPath',
     function ($resource, restHost, restPort, restPath) {
         return $resource('http://' + restHost + ':' + restPort + '/' + restPath + '/gifts', {}, {
             query: {method: 'GET'}
+        });
+    }]);
+
+weddingServices.factory('GiftResource', ['$resource', 'restHost', 'restPort', 'restPath',
+    function ($resource, restHost, restPort, restPath) {
+        return $resource('http://' + restHost + ':' + restPort + '/' + restPath + '/gift/:id', {}, {
+            get: {method: 'GET'}
+        });
+    }]);
+
+weddingServices.factory('BookResource', ['$resource', 'restHost', 'restPort', 'restPath',
+    function ($resource, restHost, restPort, restPath) {
+        return $resource('http://' + restHost + ':' + restPort + '/' + restPath + '/booking', {}, {
+            book: {method: 'POST'}
         });
     }]);
 
