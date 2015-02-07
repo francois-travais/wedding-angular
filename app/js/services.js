@@ -4,44 +4,44 @@
 
 var weddingServices = angular.module('weddingServices', ['ngResource', 'config']);
 
-weddingServices.factory('GiftsResource', ['$resource', 'restHost', 'restPort', 'restPath',
-    function ($resource, restHost, restPort, restPath) {
-        return $resource('http://' + restHost + ':' + restPort + '/' + restPath + '/gifts', {}, {
+weddingServices.factory('GiftsResource', ['$resource', 'restHost', 'restPort', 'restPath', 'restProtocol',
+    function ($resource, restHost, restPort, restPath, restProtocol) {
+        return $resource(restProtocol + '://' + restHost + ':' + restPort + '/' + restPath + '/gifts', {}, {
             query: {method: 'GET'}
         });
     }]);
 
-weddingServices.factory('GiftResource', ['$resource', 'restHost', 'restPort', 'restPath',
-    function ($resource, restHost, restPort, restPath) {
-        return $resource('http://' + restHost + ':' + restPort + '/' + restPath + '/gift/:id', {}, {
+weddingServices.factory('GiftResource', ['$resource', 'restHost', 'restPort', 'restPath', 'restProtocol',
+    function ($resource, restHost, restPort, restPath, restProtocol) {
+        return $resource(restProtocol + '://' + restHost + ':' + restPort + '/' + restPath + '/gift/:id', {}, {
             get: {method: 'GET'}
         });
     }]);
 
-weddingServices.factory('BookResource', ['$resource', 'restHost', 'restPort', 'restPath',
-    function ($resource, restHost, restPort, restPath) {
-        return $resource('http://' + restHost + ':' + restPort + '/' + restPath + '/booking', {}, {
+weddingServices.factory('BookResource', ['$resource', 'restHost', 'restPort', 'restPath', 'restProtocol',
+    function ($resource, restHost, restPort, restPath, restProtocol) {
+        return $resource(restProtocol + '://' + restHost + ':' + restPort + '/' + restPath + '/booking', {}, {
             book: {method: 'POST'}
         });
     }]);
 
-weddingServices.factory('AccommodationResource', ['$resource', 'restHost', 'restPort', 'restPath',
-    function ($resource, restHost, restPort, restPath) {
-        return $resource('http://' + restHost + ':' + restPort + '/' + restPath + '/accommodations', {}, {
+weddingServices.factory('AccommodationResource', ['$resource', 'restHost', 'restPort', 'restPath', 'restProtocol',
+    function ($resource, restHost, restPort, restPath, restProtocol) {
+        return $resource(restProtocol + '://' + restHost + ':' + restPort + '/' + restPath + '/accommodations', {}, {
             query: {method: 'GET'}
         });
     }]);
 
-weddingServices.factory('ContactResource', ['$resource', 'restHost', 'restPort', 'restPath',
-    function ($resource, restHost, restPort, restPath) {
-        return $resource('http://' + restHost + ':' + restPort + '/' + restPath + '/contact', {}, {
+weddingServices.factory('ContactResource', ['$resource', 'restHost', 'restPort', 'restPath', 'restProtocol',
+    function ($resource, restHost, restPort, restPath, restProtocol) {
+        return $resource(restProtocol + '://' + restHost + ':' + restPort + '/' + restPath + '/contact', {}, {
             send: {method: 'POST'}
         });
     }]);
 
-weddingServices.factory('ReplyResource', ['$resource', 'restHost', 'restPort', 'restPath',
-    function ($resource, restHost, restPort, restPath) {
-        return $resource('http://' + restHost + ':' + restPort + '/' + restPath + '/reply', {}, {
+weddingServices.factory('ReplyResource', ['$resource', 'restHost', 'restPort', 'restPath', 'restProtocol',
+    function ($resource, restHost, restPort, restPath, restProtocol) {
+        return $resource(restProtocol + '://' + restHost + ':' + restPort + '/' + restPath + '/reply', {}, {
             send: {method: 'POST'}
         });
     }]);
