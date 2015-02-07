@@ -48,7 +48,7 @@ function genericGiftFilter(array, expression, elment, markers, MapIconMarker) {
                 break;
             }
         }
-        if (match) {
+        if (match && el.coordinates != null) {
             markers[el.id] = {
                 'lat': el.coordinates[0],
                 'lng': el.coordinates[1],
