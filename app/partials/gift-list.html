@@ -3,24 +3,22 @@
 </div>
 <div class="container gifts">
     <div class="row text-justify">
-        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-            consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-            sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
-            sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-            elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-            vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-            Lorem ipsum dolor sit amet.</p>
+        <p>Votre présence à notre mariage est le plus beau des cadeaux. Cependant, nous savons que beaucoup d'entre vous
+            désirent nous offrir un petit quelque chose. </p>
 
-        <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu
-            feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
-            delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing
-            elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+        <p>Nous comptons nous envoler en Italie pour notre voyage de noces au printemps prochain. Nous avons imaginé un
+            séjour d’une douzaine de jours : Venise – Florence – Rome, entre visites culturelles, balades urbaines et
+            escapade provinciale. Nous avons dressé la liste des choses que l’on souhaite visiter et savourer. Vous
+            pouvez nous offrir ou participer à l’achat de ses sorties, qui s’annoncent magiques pour nous.</p>
+
+        <p>Un grand merci par avance !</p>
+
+        <p>PS : Il ne s’agit pas de paiement en ligne mais plus d’une réservation : une tirelire sera disponible le
+            jour j</p>
     </div>
     <div class="row">
         <div class="col-md-3" style="padding-left: 0px;">
-            <div class="left-menu" stick-left="265">
+            <div class="left-menu" stick-left="350">
                 <p class="title">Catégories</p>
 
                 <div class="items btn-group-vertical" role="group">
@@ -45,7 +43,8 @@
         <div class="col-md-9">
             <leaflet defaults="mapDefaults" center="mapCenter" markers="markers" class="row"
                      style="height: 480px; margin-bottom: 1%;"></leaflet>
-            <div ng-repeat="gift in gifts | giftTypeFilter:types:markers | giftCityFilter:cities:markers" class="row panel panel-default">
+            <div ng-repeat="gift in gifts | giftTypeFilter:types:markers | giftCityFilter:cities:markers"
+                 class="row panel panel-default">
                 <div class="panel-heading"><a href="#/{{gift.id}}"><h4>{{gift.name}}</h4></a></div>
                 <div class="panel-body">
                     <div class="row">
