@@ -199,7 +199,7 @@ weddingControllers.controller('ReplyFormCtrl', ['$scope', '$modalInstance', 'Rep
                     $modalInstance.close('reply form saved');
                 })
                 .catch(function () {
-                    $scope.alerts.push({type: 'danger', msg: "Les informations n'ont pas put être transmise."});
+                    $scope.alerts.push({type: 'danger', msg: "Les informations n'ont pas pu être transmises."});
                     console.error("Something went wrong while sending reply form")
                 });
         };
@@ -263,7 +263,7 @@ weddingControllers.controller('ContactFormCtrl', ['$scope', '$modalInstance', 'C
                         $scope.alerts.push({type: 'danger', msg: "Le mot de passe est incorrect"});
                         console.error("Wrong password");
                     } else {
-                        $scope.alerts.push({type: 'danger', msg: "Les informations n'ont pas put être transmise."});
+                        $scope.alerts.push({type: 'danger', msg: "Les informations n'ont pas pu être transmises."});
                         console.error("Something went wrong while sending contact form");
                     }
                 });
@@ -312,7 +312,7 @@ weddingControllers.controller('GiftBookFormCtrl', ['$scope', '$modalInstance', '
                         $scope.alerts.push({type: 'danger', msg: "Le mot de passe est incorrect"});
                         console.error("Wrong password");
                     } else {
-                        $scope.alerts.push({type: 'danger', msg: "Les informations n'ont pas put être transmise."});
+                        $scope.alerts.push({type: 'danger', msg: "Les informations n'ont pas pu être transmises."});
                         console.error("Something went wrong while sending booking form");
                     }
                 });
