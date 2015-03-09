@@ -38,7 +38,7 @@ weddingControllers.controller('HomeCtrl', ['$scope', 'MapIconMarker',
             doubleClickZoom: true
         };
 
-        $scope.weddingDate = new Date(2015, 8, 29, 16, 0);
+        $scope.weddingDate = new Date("2015/08/29 17:00:00");
 
     }]);
 
